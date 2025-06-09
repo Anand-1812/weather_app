@@ -1,3 +1,3 @@
 import "./styles.css";
 
-alert("Working");
+console.log("Working");
