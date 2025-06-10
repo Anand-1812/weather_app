@@ -1,5 +1,7 @@
 import "./styles.css";
-import { getWeather } from "./weather";
+import { Weather } from "./weather";
+
+const weather = new Weather();
 
 console.log("Working");
-console.log(getWeather("delhi"));
+console.log(weather.getWeather("delhi"));
