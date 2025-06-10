@@ -1,4 +1,18 @@
 /* styles.css */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 body {
-  background-color: rebeccapurple;
+  background-color: #FAF1E6;
+  font-family: "Ubuntu", sans-serif;
+}
+
+h1 {
+  font-size: 2.5rem;
+  padding: 14px;
+  text-align: center;
+  color: #000000;
 }
