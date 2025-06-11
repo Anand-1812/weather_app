@@ -1,7 +1,13 @@
 import "./styles.css";
 import { Weather } from "./weather";
 
+console.log("Working");
+
 const weather = new Weather();
 
-console.log("Working");
-console.log(weather.getWeather("delhi"));
+const weatherBtn = document.querySelector("button");
+const location = document.querySelector("input");
+
+weatherBtn.addEventListener("click", () => {
+  console.log(weather.getWeather(location.value));
+});

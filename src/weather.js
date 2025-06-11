@@ -39,5 +39,4 @@ export class Weather {
       icon: weatherData.currentConditions.icon
     }
   }
-
 }
