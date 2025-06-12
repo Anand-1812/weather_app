@@ -33,7 +33,7 @@ export class Weather {
     return  {
       city: weatherData.address,
       temperature: weatherData.currentConditions.temp,
-      description: weatherData.description,
+      description: weatherData.currentConditions.description,
       realTemp: weatherData.currentConditions.feelslike,
       humid: weatherData.currentConditions.humidity,
       icon: weatherData.currentConditions.icon
