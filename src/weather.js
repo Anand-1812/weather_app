@@ -18,9 +18,6 @@ export class Weather {
 
       const weatherData = await response.json();
       console.log(weatherData);
-      console.log(weatherData.address);
-      console.log(weatherData.currentConditions.temp);
-      console.log(weatherData.currentConditions.icon);
 
       return this.dataToJson(weatherData);
 
@@ -33,7 +30,7 @@ export class Weather {
     return  {
       city: weatherData.address,
       temperature: weatherData.currentConditions.temp,
-      description: weatherData.currentConditions.description,
+      description: weatherData.description,
       realTemp: weatherData.currentConditions.feelslike,
       humid: weatherData.currentConditions.humidity,
       icon: weatherData.currentConditions.icon
