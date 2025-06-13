@@ -37,6 +37,8 @@ export function putDataInPage(data) {
   weatherCard.append(impDiv, temp, descp, realTemp, humidity);
   dataDiv.appendChild(weatherCard);
 
+
+  // Gpt code idea mine :)
   let isCelsius = false;
 
   tempBtn.addEventListener("click", () => {
