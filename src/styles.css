@@ -157,7 +157,7 @@ h1 {
 
 /* gpt work */
 
-.toogle-temp {
+.toggle-temp {
   background-color: #007bff;
   color: white;
   border: none;
@@ -169,20 +169,20 @@ h1 {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.toogle-temp:hover {
+.toggle-temp:hover {
   background-color: #0056b3;
   transform: scale(1.05);
 }
 
-.toogle-temp:active {
+.toggle-temp:active {
   transform: scale(0.95);
 }
 
-.toogle-temp .temp-label {
+.toggle-temp .temp-label {
   display: inline-block;
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.toogle-temp.active .temp-label {
+.toggle-temp.active .temp-label {
   color: #f0f0f0;
 }
