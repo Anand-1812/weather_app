@@ -11,28 +11,25 @@ export function putDataInPage(data) {
   city.textContent = `City: ${data.city}`;
 
   const tempBtn = document.createElement("button");
-  tempBtn.className = "toogle-temp";
+  tempBtn.className = "toggle-temp";
   tempBtn.innerHTML = `<span class="temp-label">in °C</span>`;
 
   impDiv.append(city, tempBtn);
 
-  // Temperature (c and F)
   const temp = document.createElement("p");
   temp.className = "temp";
   temp.textContent = `Temperature: ${data.temperature} °F`;
   temp.dataset.f = data.temperature;
   temp.dataset.c = ((data.temperature - 32) * 5 / 9).toFixed(2);
-  temp.dataset.unit = "f";
 
   const descp = document.createElement("p");
-  descp.textContent = `Condtion: ${data.description}`;
+  descp.textContent = `Condition: ${data.description}`;
 
   const realTemp = document.createElement("p");
   realTemp.className = "realTemp";
   realTemp.textContent = `Feels Like: ${data.realTemp} °F`;
   realTemp.dataset.f = data.realTemp;
   realTemp.dataset.c = ((data.realTemp - 32) * 5 / 9).toFixed(2);
-  realTemp.dataset.unit = "f";
 
   const humidity = document.createElement("p");
   humidity.textContent = `Humidity: ${data.humid}%`;
@@ -48,16 +45,26 @@ export function putDataInPage(data) {
 
     if (isCelsius) {
       tempBtn.querySelector(".temp-label").textContent = "in °F";
-      temp.textContent = `Temperature: ${toCelsius(data.temperature)} °C`;
-    realTemp.textContent = `Feels Like: ${toCelsius(data.realTemp)} °C`;
+      temp.textContent = `Temperature: ${temp.dataset.c} °C`;
+      realTemp.textContent = `Feels Like: ${realTemp.dataset.c} °C`;
+
+      const tempC = parseFloat(temp.dataset.c);
+      const realTempC = parseFloat(realTemp.dataset.c);
+
+      if (tempC >= 39 || realTempC >= 39) {
+        temp.style.color = "red";
+        realTemp.style.color = "red";
+      } else {
+        temp.style.color = "";
+        realTemp.style.color = "";
+      }
+
     } else {
       tempBtn.querySelector(".temp-label").textContent = "in °C";
-      temp.textContent = `Temperature: ${data.temperature} °F`;
-      realTemp.textContent = `Feels Like: ${data.realTemp} °F`;
+      temp.textContent = `Temperature: ${temp.dataset.f} °F`;
+      realTemp.textContent = `Feels Like: ${realTemp.dataset.f} °F`;
+      temp.style.color = "";
+      realTemp.style.color = "";
     }
   });
-
-  function toCelsius(f) {
-    return Math.round((f - 32) * 5 / 9);
-  }
 }
