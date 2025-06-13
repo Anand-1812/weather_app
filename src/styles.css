@@ -149,3 +149,40 @@ h1 {
     transform: translateY(0);
   }
 }
+
+.imp-div {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* gpt work */
+
+.toogle-temp {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.toogle-temp:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.toogle-temp:active {
+  transform: scale(0.95);
+}
+
+.toogle-temp .temp-label {
+  display: inline-block;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.toogle-temp.active .temp-label {
+  color: #f0f0f0;
+}
