@@ -20,7 +20,7 @@ export function putDataInPage(data) {
   temp.className = "temp";
   temp.textContent = `Temperature: ${data.temperature} °F`;
   temp.dataset.f = data.temperature;
-  temp.dataset.c = ((data.temperature - 32) * 5 / 9).toFixed(2);
+  temp.dataset.c = Math.round(((data.temperature - 32) * 5 / 9).toFixed(2));
 
   const descp = document.createElement("p");
   descp.textContent = `Condition: ${data.description}`;
@@ -29,7 +29,7 @@ export function putDataInPage(data) {
   realTemp.className = "realTemp";
   realTemp.textContent = `Feels Like: ${data.realTemp} °F`;
   realTemp.dataset.f = data.realTemp;
-  realTemp.dataset.c = ((data.realTemp - 32) * 5 / 9).toFixed(2);
+  realTemp.dataset.c = Math.round(((data.realTemp - 32) * 5 / 9).toFixed(2));
 
   const humidity = document.createElement("p");
   humidity.textContent = `Humidity: ${data.humid}%`;
@@ -53,11 +53,15 @@ export function putDataInPage(data) {
       const tempC = parseFloat(temp.dataset.c);
       const realTempC = parseFloat(realTemp.dataset.c);
 
-      if (tempC >= 39 || realTempC >= 39) {
+      if (tempC >= 40) {
         temp.style.color = "red";
-        realTemp.style.color = "red";
       } else {
         temp.style.color = "";
+      }
+
+      if (realTempC >= 40) {
+        realTemp.style.color = "red";
+      } else {
         realTemp.style.color = "";
       }
 
